@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('app');
-});
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard.index');
+})->name('dashboard');
+
+// Redirect dashbord typo to dashboard
+Route::redirect('/', '/dashboard');
