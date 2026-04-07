@@ -11,4 +11,5 @@ document.addEventListener("DOMContentLoaded", () => {
     // 2. Initialize the module
     // (the module will internally check if it is on the login page)
     initLogin();
+    // showBanner();
 });

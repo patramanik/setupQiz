@@ -76,11 +76,7 @@
         <div class="relative z-10 p-12 lg:p-24 text-white max-w-2xl">
             <div
                 class="mb-8 inline-flex items-center gap-3 bg-white/10 px-4 py-2 rounded-full backdrop-blur-md border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:bg-white/20 transition-all duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-400" viewBox="0 0 20 20"
-                    fill="currentColor">
-                    <path
-                        d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361v6.103a8.1 8.1 0 01-7.39 1.073z" />
-                </svg>
+                <i class="fa-solid fa-graduation-cap text-amber-400 text-lg"></i>
                 <span class="text-sm font-medium tracking-wide border-l border-white/30 pl-3">Quiz PORTAL</span>
             </div>
 
@@ -132,11 +128,7 @@
             <div class="lg:hidden mb-10 inline-flex items-center gap-3">
                 <div
                     class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center shadow-lg shadow-indigo-600/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-white" viewBox="0 0 20 20"
-                        fill="currentColor">
-                        <path
-                            d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3z" />
-                    </svg>
+                    <i class="fa-solid fa-graduation-cap text-white text-2xl"></i>
                 </div>
                 <span class="text-2xl font-bold text-slate-800 tracking-tight font-outfit">QuizApp</span>
             </div>
@@ -158,11 +150,7 @@
                     <div class="relative">
                         <div
                             class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-500 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                                stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                            </svg>
+                            <i class="fa-regular fa-envelope text-lg"></i>
                         </div>
                         <input id="email" type="email" name="email" required placeholder="@gmail.com"
                             class="w-full pl-11 pr-4 py-3 bg-slate-50/50 border border-slate-200 text-slate-800 rounded-xl outline-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-all duration-300">
@@ -181,11 +169,7 @@
                     <div class="relative">
                         <div
                             class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-500 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
-                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round"
-                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                            </svg>
+                            <i class="fa-solid fa-lock text-lg"></i>
                         </div>
                         <input id="password" type="password" name="password" required placeholder="••••••••••••"
                             class="w-full pl-11 pr-4 py-3 bg-slate-50/50 border border-slate-200 text-slate-800 rounded-xl outline-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-all duration-300">
@@ -206,13 +190,7 @@
                 <button type="submit"
                     class="w-full relative group overflow-hidden py-3.5 px-4 bg-indigo-600 text-white font-semibold rounded-xl transition duration-300 hover:bg-indigo-700 shadow-[0_8px_20px_-6px_rgba(79,70,229,0.5)] hover:shadow-[0_12px_25px_-6px_rgba(79,70,229,0.6)] flex justify-center items-center gap-2 transform active:scale-[0.98]">
                     <span class="tracking-wide">Sign In to Portal</span>
-                    <svg xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5 transform group-hover:translate-x-1.5 transition-transform duration-300"
-                        viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                            clip-rule="evenodd" />
-                    </svg>
+                    <i class="fa-solid fa-arrow-right text-lg transform group-hover:translate-x-1.5 transition-transform duration-300"></i>
                 </button>
             </form>
 
