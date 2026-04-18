@@ -13,6 +13,17 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->string('student_id')->unique();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            // OTP fields
+            $table->string('otp')->nullable();
+            $table->timestamp('otp_expires_at')->nullable();
+
+            // Optional: track verification
+            $table->boolean('is_verified')->default(false);
+            $table->rememberToken();
             $table->timestamps();
         });
     }
