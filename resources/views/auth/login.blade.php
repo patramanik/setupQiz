@@ -152,7 +152,7 @@
                             class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-slate-400 group-focus-within:text-indigo-500 transition-colors">
                             <i class="fa-regular fa-envelope text-lg"></i>
                         </div>
-                        <input id="email" type="email" name="email" required placeholder="@gmail.com"
+                        <input id="email" type="email" name="email" value="{{ old('email') }}" required placeholder="@gmail.com"
                             class="w-full pl-11 pr-4 py-3 bg-slate-50/50 border border-slate-200 text-slate-800 rounded-xl outline-none focus:bg-white focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-all duration-300">
                     </div>
                 </div>

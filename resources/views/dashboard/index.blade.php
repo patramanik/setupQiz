@@ -9,7 +9,7 @@
     <!-- Welcome Header -->
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-50">Welcome back, Alex! 👋</h2>
+            <h2 class="text-2xl font-bold text-gray-900 dark:text-gray-50">Welcome back, {{ Auth::user()->name }}! 👋</h2>
             <p class="text-gray-500 dark:text-gray-300 mt-1">Here's what's happening with your quiz application today.</p>
         </div>
         <div class="flex items-center gap-2">
