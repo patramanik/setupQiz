@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>@yield('title', 'Admin Dashboard') | Nexus</title>
+    <title>@yield('title', 'Admin Dashboard') | ExamDisha</title>
     <!-- Tailwind CSS CDN -->
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <!-- Google Fonts Inter -->
@@ -54,7 +54,7 @@
         </main>
 
         <footer class="mt-8 mb-4 text-center text-xs text-gray-400 border-t border-gray-100 pt-5">
-            <p>© {{ date('Y') }} NexusDash — Admin Dashboard. Built with Tailwind CSS & Laravel</p>
+            <p>© {{ date('Y') }} Exam Disha — Admin Dashboard. Built with Tailwind CSS & Laravel</p>
         </footer>
     </div>
 </div>

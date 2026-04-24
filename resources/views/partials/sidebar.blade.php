@@ -8,8 +8,8 @@
                 <i class="fas fa-bolt text-white text-lg"></i>
             </div>
             <div class="flex flex-col">
-                <span class="text-xl font-bold text-gray-800 dark:text-gray-50 tracking-tight leading-none">Nexus<span
-                        class="text-indigo-600 dark:text-indigo-400">Dash</span></span>
+                <span class="text-xl font-bold text-gray-800 dark:text-gray-50 tracking-tight leading-none">Exam<span
+                        class="text-indigo-600 dark:text-indigo-400">Disha</span></span>
                 <span
                     class="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mt-1.5">Quiz
                     Platform</span>
@@ -78,6 +78,72 @@
             </a>
             @endif
         </div>
+        <!-- Quiz Group -->
+        <div class="space-y-1.5">
+            <p class="px-4 text-[11px] font-extrabold text-gray-400 dark:text-gray-600 uppercase tracking-[2px] mb-4">
+                Quiz Menu</p>
+
+           
+
+            <!-- Check if User has permission to see Quizzes -->
+            @if(auth()->check() && auth()->user()->hasPermission('edit quiz'))
+            <a href="#"
+                class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white">
+                <div
+                    class="w-5 flex justify-center text-gray-400 dark:text-gray-500 group-hover:text-amber-500 dark:group-hover:text-amber-400">
+                    <i class="fas fa-book-open text-lg"></i>
+                </div>
+                <span class="text-[14px]">Quizzes</span>
+            </a>
+            @endif
+
+           
+
+            <!-- Check if User has permission to see Analytics -->
+            @if(auth()->check() && auth()->user()->hasPermission('view reports'))
+            <a href="#"
+                class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white">
+                <div
+                    class="w-5 flex justify-center text-gray-400 dark:text-gray-500 group-hover:text-emerald-500 dark:group-hover:text-emerald-400">
+                    <i class="fas fa-chart-line-up text-lg"></i>
+                </div>
+                <span class="text-[14px]">Quiz Analytics</span>
+            </a>
+            @endif
+        </div>
+        <!-- Student  Group -->
+        <div class="space-y-1.5">
+            <p class="px-4 text-[11px] font-extrabold text-gray-400 dark:text-gray-600 uppercase tracking-[2px] mb-4">
+                Student Menu</p>
+
+           
+
+            <!-- Check if User has permission to see Students -->
+            @if(auth()->check() && auth()->user()->hasPermission('student entry'))
+            <a href="#"
+                class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white">
+                <div
+                    class="w-5 flex justify-center text-gray-400 dark:text-gray-500 group-hover:text-rose-500 dark:group-hover:text-rose-400">
+                    <i class="fas fa-user-graduate text-lg"></i>
+                </div>
+                <span class="text-[14px]">Students</span>
+                <span
+                    class="ml-auto bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-[10px] font-bold px-2.5 py-0.5 rounded-lg uppercase tracking-wide">New</span>
+            </a>
+            @endif
+
+            <!-- Check if User has permission to see Analytics -->
+            @if(auth()->check() && auth()->user()->hasPermission('view reports'))
+            <a href="#"
+                class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white">
+                <div
+                    class="w-5 flex justify-center text-gray-400 dark:text-gray-500 group-hover:text-emerald-500 dark:group-hover:text-emerald-400">
+                    <i class="fas fa-chart-line-up text-lg"></i>
+                </div>
+                <span class="text-[14px]">Student Analytics</span>
+            </a>
+            @endif
+        </div>
 
         <!-- Management Group -->
         <div class="space-y-1.5">
@@ -125,17 +191,17 @@
 
 
 
-            <a href="#"
+            {{-- <a href="#"
                 class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white">
                 <div class="w-5 flex justify-center text-gray-400 dark:text-gray-500 group-hover:text-indigo-500">
                     <i class="fas fa-cog text-lg"></i>
                 </div>
                 <span class="text-[14px]">Configurations</span>
-            </a>
+            </a> --}}
         </div>
 
         <!-- Support Widget -->
-        <div class="px-2 pt-6">
+        {{-- <div class="px-2 pt-6">
             <div
                 class="relative overflow-hidden bg-indigo-50 dark:bg-slate-800/80 border border-indigo-100 dark:border-slate-700/50 rounded-2xl p-5 group cursor-pointer hover:bg-indigo-100/60 dark:hover:bg-slate-800 transition-all duration-300 shadow-sm">
                 <div
@@ -153,7 +219,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </nav>
 
     <!-- Footer Profile -->
