@@ -45,4 +45,38 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    /**
+     * The roles that belong to the user.
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
+    /**
+     * The explicit permissions that belong directly to the user.
+     */
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class);
+    }
+
+    /**
+     * Check if the user has a specific role.
+     */
+    public function hasRole($role)
+    {
+        return $this->roles()->where('name', $role)->exists();
+    }
+
+    /**
+     * Check if the user has a specific permission directly assigned to them.
+     */
+    public function hasPermission($permission)
+    {
+        // For performance in views, you might want to load 'permissions' relationship securely
+        // or just use query for now
+        return $this->permissions()->where('name', $permission)->exists();
+    }
 }

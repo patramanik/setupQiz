@@ -40,6 +40,8 @@
                 @endif
             </a>
 
+            <!-- Check if User has permission to see Quizzes -->
+            @if(auth()->check() && auth()->user()->hasPermission('edit quiz'))
             <a href="#"
                 class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white">
                 <div
@@ -48,7 +50,10 @@
                 </div>
                 <span class="text-[14px]">Quizzes</span>
             </a>
+            @endif
 
+            <!-- Check if User has permission to see Students -->
+            @if(auth()->check() && auth()->user()->hasPermission('student entry'))
             <a href="#"
                 class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white">
                 <div
@@ -59,7 +64,10 @@
                 <span
                     class="ml-auto bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-[10px] font-bold px-2.5 py-0.5 rounded-lg uppercase tracking-wide">New</span>
             </a>
+            @endif
 
+            <!-- Check if User has permission to see Analytics -->
+            @if(auth()->check() && auth()->user()->hasPermission('view reports'))
             <a href="#"
                 class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white">
                 <div
@@ -68,6 +76,7 @@
                 </div>
                 <span class="text-[14px]">Analytics</span>
             </a>
+            @endif
         </div>
 
         <!-- Management Group -->
@@ -75,20 +84,53 @@
             <p class="px-4 text-[11px] font-extrabold text-gray-400 dark:text-gray-600 uppercase tracking-[2px] mb-4">
                 Management</p>
 
+            @if(auth()->check() && auth()->user()->hasPermission('manage roles'))
+            <a href="{{ route('roles.index') }}"
+                class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group {{ request()->routeIs('roles.*') ? 'bg-indigo-50 dark:bg-indigo-600/20 text-indigo-700 dark:text-indigo-400 font-bold shadow-sm' : 'hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white' }}">
+                <div class="w-5 flex justify-center {{ request()->routeIs('roles.*') ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-400 dark:text-gray-500 group-hover:text-indigo-500' }}">
+                    <i class="fas fa-users-cog text-lg"></i>
+                </div>
+                <span class="text-[14px]">Roles Templates</span>
+                @if(request()->routeIs('roles.*'))
+                    <span class="ml-auto w-2 h-2 rounded-full bg-indigo-600 dark:bg-indigo-400 shadow-glow"></span>
+                @endif
+            </a>
+            @endif
+
+            @if(auth()->check() && auth()->user()->hasPermission('manage users'))
+            <a href="{{ route('users.index') }}"
+                class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group {{ request()->routeIs('users.index') || request()->routeIs('users.edit') ? 'bg-indigo-50 dark:bg-indigo-600/20 text-indigo-700 dark:text-indigo-400 font-bold shadow-sm' : 'hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white' }}">
+                <div class="w-5 flex justify-center {{ request()->routeIs('users.index') || request()->routeIs('users.edit') ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-400 dark:text-gray-500 group-hover:text-indigo-500' }}">
+                    <i class="fas fa-users text-lg"></i>
+                </div>
+                <span class="text-[14px]">All Users</span>
+                @if(request()->routeIs('users.index') || request()->routeIs('users.edit'))
+                    <span class="ml-auto w-2 h-2 rounded-full bg-indigo-600 dark:bg-indigo-400 shadow-glow"></span>
+                @endif
+            </a>
+            @endif
+
+            @if(auth()->check() && auth()->user()->hasPermission('create user'))
+            <a href="{{ route('users.create') }}"
+                class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group {{ request()->routeIs('users.create') ? 'bg-indigo-50 dark:bg-indigo-600/20 text-indigo-700 dark:text-indigo-400 font-bold shadow-sm' : 'hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white' }}">
+                <div class="w-5 flex justify-center {{ request()->routeIs('users.create') ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-400 dark:text-gray-500 group-hover:text-indigo-500' }}">
+                    <i class="fas fa-user-plus text-lg"></i>
+                </div>
+                <span class="text-[14px]">Create User</span>
+                @if(request()->routeIs('users.create'))
+                    <span class="ml-auto w-2 h-2 rounded-full bg-indigo-600 dark:bg-indigo-400 shadow-glow"></span>
+                @endif
+            </a>
+            @endif
+
+
+
             <a href="#"
                 class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white">
                 <div class="w-5 flex justify-center text-gray-400 dark:text-gray-500 group-hover:text-indigo-500">
                     <i class="fas fa-cog text-lg"></i>
                 </div>
                 <span class="text-[14px]">Configurations</span>
-            </a>
-
-            <a href="#"
-                class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white">
-                <div class="w-5 flex justify-center text-gray-400 dark:text-gray-500 group-hover:text-indigo-500">
-                    <i class="fas fa-shield-halved text-lg"></i>
-                </div>
-                <span class="text-[14px]">Moderators</span>
             </a>
         </div>
 
@@ -131,8 +173,8 @@
                     {{ Auth::user()->name }}
                 </p>
                 <p
-                    class="text-[11px] font-semibold text-gray-400 dark:text-gray-500 truncate mt-0.5 uppercase tracking-wider">
-                    Super Admin
+                    class="text-[11px] font-semibold text-gray-400 dark:text-gray-500 truncate mt-0.5 tracking-wider capitalize">
+                    {{ Auth::user()->roles->first()?->name ?? 'User' }}
                 </p>
             </div>
 
