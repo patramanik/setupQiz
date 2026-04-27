@@ -83,7 +83,29 @@
             <p class="px-4 text-[11px] font-extrabold text-gray-400 dark:text-gray-600 uppercase tracking-[2px] mb-4">
                 Quiz Menu</p>
 
-           
+            <a href="{{ route('exams.index') }}"
+                class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group {{ request()->routeIs('exams.*') ? 'bg-indigo-50 dark:bg-indigo-600/20 text-indigo-700 dark:text-indigo-400 font-bold shadow-sm' : 'hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white' }}">
+                <div
+                    class="w-5 flex justify-center {{ request()->routeIs('exams.*') ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-400 dark:text-gray-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400' }}">
+                    <i class="fas fa-file-signature text-lg"></i>
+                </div>
+                <span class="text-[14px]">Exams</span>
+                @if (request()->routeIs('exams.*'))
+                    <span class="ml-auto w-2 h-2 rounded-full bg-indigo-600 dark:bg-indigo-400 shadow-glow"></span>
+                @endif
+            </a>
+
+            <a href="{{ route('subjects.index') }}"
+                class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group {{ request()->routeIs('subjects.*') ? 'bg-indigo-50 dark:bg-indigo-600/20 text-indigo-700 dark:text-indigo-400 font-bold shadow-sm' : 'hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white' }}">
+                <div
+                    class="w-5 flex justify-center {{ request()->routeIs('subjects.*') ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-400 dark:text-gray-500 group-hover:text-indigo-500 dark:group-hover:text-indigo-400' }}">
+                    <i class="fas fa-book-open text-lg"></i>
+                </div>
+                <span class="text-[14px]">Subjects</span>
+                @if (request()->routeIs('subjects.*'))
+                    <span class="ml-auto w-2 h-2 rounded-full bg-indigo-600 dark:bg-indigo-400 shadow-glow"></span>
+                @endif
+            </a>
 
             <!-- Check if User has permission to see Quizzes -->
             @if(auth()->check() && auth()->user()->hasPermission('edit quiz'))
