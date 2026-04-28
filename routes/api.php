@@ -12,6 +12,10 @@ Route::get('/user', function (Request $request) {
 Route::post('/student/login', [StudentController::class, 'login']);
 Route::post('/student/register', [StudentController::class, 'register']);
 
+Route::middleware('auth:sanctum')->group(function () {
+    Route::post('/student/profile/update', [StudentController::class, 'updateProfile']);
+});
+
 // Route::middleware('auth:sanctum')->get('/student/profile', function (Request $request) {
 //     return $request->user();
 // });

@@ -4,16 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class StudentProfile extends Model
+class WalletHistory extends Model
 {
     protected $fillable = [
         'student_id',
-        'name',
-        'mail',
-        'address',
-        'dob',
-        'gender',
-        'high_qlc',
+        'type',
+        'amount',
+        'updated_balance',
+        'description',
     ];
 
     public function student()

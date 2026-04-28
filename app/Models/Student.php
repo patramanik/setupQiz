@@ -17,6 +17,7 @@ class Student extends Authenticatable
         'name',
         'email',
         'password',
+        'wallet_balance',
     ];
 
     protected $hidden = [
@@ -37,5 +38,14 @@ class Student extends Authenticatable
 
             $student->student_id = $newId;
         });
+    }
+    public function profile()
+    {
+        return $this->hasOne(StudentProfile::class, 'student_id', 'student_id');
+    }
+
+    public function walletHistories()
+    {
+        return $this->hasMany(WalletHistory::class, 'student_id', 'student_id');
     }
 }

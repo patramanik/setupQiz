@@ -13,16 +13,14 @@ return new class extends Migration
     {
         Schema::create('student_profiles', function (Blueprint $table) {
             $table->id();
-              // Relation with students table
-        $table->foreignId('student_id')->constrained()->onDelete('cascade');
-
-        // Profile fields
-        $table->string('first_name');
-        $table->string('last_name')->nullable();
-        $table->string('phone')->nullable();
-        $table->string('address')->nullable();
-        $table->date('dob')->nullable();
-        $table->string('gender')->nullable();
+            $table->string('student_id');
+            $table->foreign('student_id')->references('student_id')->on('students')->onDelete('cascade');
+            $table->string('name')->nullable();
+            $table->string('mail')->nullable();
+            $table->text('address')->nullable();
+            $table->date('dob')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('high_qlc')->nullable();
             $table->timestamps();
         });
     }

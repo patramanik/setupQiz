@@ -48,6 +48,12 @@ Route::middleware(['auth', PreventBackHistory::class])->group(function () {
     Route::put('subjects/{subject}', [ExamController::class, 'subjectUpdate'])->name('subjects.update');
     Route::delete('subjects/{subject}', [ExamController::class, 'subjectDestroy'])->name('subjects.destroy');
 
+    // Student Management Routes
+    Route::get('admin/students', [\App\Http\Controllers\Admin\AdminStudentController::class, 'index'])->name('admin.students.index')->middleware(\App\Http\Middleware\CheckPermission::class . ':student entry');
+    Route::get('admin/students/{student_id}', [\App\Http\Controllers\Admin\AdminStudentController::class, 'show'])->name('admin.students.show')->middleware(\App\Http\Middleware\CheckPermission::class . ':student entry');
+    Route::get('admin/students/{student_id}/edit', [\App\Http\Controllers\Admin\AdminStudentController::class, 'edit'])->name('admin.students.edit')->middleware(\App\Http\Middleware\CheckPermission::class . ':student entry');
+    Route::put('admin/students/{student_id}', [\App\Http\Controllers\Admin\AdminStudentController::class, 'update'])->name('admin.students.update')->middleware(\App\Http\Middleware\CheckPermission::class . ':student entry');
+
     // The Logout Route
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });

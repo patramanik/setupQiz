@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Student;
+use App\Models\StudentProfile;
+use App\Models\WalletHistory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -20,6 +22,21 @@ class StudentController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'wallet_balance' => 200,
+        ]);
+
+        StudentProfile::create([
+            'student_id' => $student->student_id,
+            'name' => $student->name,
+            'mail' => $student->email,
+        ]);
+
+        WalletHistory::create([
+            'student_id' => $student->student_id,
+            'type' => 'Credit',
+            'amount' => 200,
+            'updated_balance' => 200,
+            'description' => 'Sign-up bonus',
         ]);
 
         return response()->json([
@@ -51,6 +68,37 @@ class StudentController extends Controller
             'access_token' => $token,
             'token_type' => 'Bearer',
             'student' => $student
+        ]);
+    }
+
+    public function updateProfile(Request $request)
+    {
+        $student = $request->user();
+
+        $request->validate([
+            'student_id' => 'required|string',
+            'address' => 'nullable|string',
+            'dob' => 'nullable|date',
+            'gender' => 'nullable|string',
+            'high_qlc' => 'nullable|string',
+        ]);
+
+        // Check if passed student_id matches the authenticated student's ID
+        if ($request->student_id !== $student->student_id) {
+            return response()->json([
+                'message' => 'Unauthorized. Student ID mismatch.'
+            ], 403);
+        }
+
+        $profile = StudentProfile::where('student_id', $student->student_id)->first();
+        
+        if ($profile) {
+            $profile->update($request->only(['address', 'dob', 'gender', 'high_qlc']));
+        }
+
+        return response()->json([
+            'message' => 'Profile updated successfully',
+            'profile' => $profile
         ]);
     }
 }

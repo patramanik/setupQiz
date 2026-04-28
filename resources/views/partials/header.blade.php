@@ -47,11 +47,11 @@
         <!-- User profile summary -->
         <div class="flex items-center gap-3.5 pl-1 group cursor-pointer">
             <div class="flex flex-col text-right hidden sm:flex">
-                <span class="text-[13px] font-extrabold text-gray-800 dark:text-gray-50 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{{ Auth::user()->name }}</span>
-                <span class="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mt-0.5">{{ Auth::user()->roles->first()->name }}</span>
+                <span class="text-[13px] font-extrabold text-gray-800 dark:text-gray-50 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">{{ Auth::user()?->name }}</span>
+                <span class="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest mt-0.5">{{ Auth::user()?->roles->first()?->name ?? 'No Role' }}</span>
             </div>
             <div class="relative">
-                <img class="w-10 h-10 rounded-xl object-cover ring-2 ring-gray-100 dark:ring-slate-800 group-hover:ring-indigo-500/40 transition-all duration-300" src="https://ui-avatars.com/api/?background=6366f1&color=fff&name={{ substr(Auth::user()->name, 0, 2) }}" alt="profile">
+                <img class="w-10 h-10 rounded-xl object-cover ring-2 ring-gray-100 dark:ring-slate-800 group-hover:ring-indigo-500/40 transition-all duration-300" src="https://ui-avatars.com/api/?background=6366f1&color=fff&name={{ substr(Auth::user()?->name ?? 'U', 0, 2) }}" alt="profile">
                 <span class="absolute -bottom-1 -right-1 w-4 h-4 bg-white dark:bg-slate-900 rounded-full flex items-center justify-center text-[8px] border border-gray-100 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 font-bold shadow-sm">
                     <i class="fas fa-chevron-down"></i>
                 </span>

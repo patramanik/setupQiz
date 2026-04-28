@@ -54,15 +54,19 @@
 
             <!-- Check if User has permission to see Students -->
             @if(auth()->check() && auth()->user()->hasPermission('student entry'))
-            <a href="#"
-                class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white">
+            <a href="{{ route('admin.students.index') }}"
+                class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group {{ request()->routeIs('admin.students.*') ? 'bg-indigo-50 dark:bg-indigo-600/20 text-indigo-700 dark:text-indigo-400 font-bold shadow-sm' : 'hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white' }}">
                 <div
-                    class="w-5 flex justify-center text-gray-400 dark:text-gray-500 group-hover:text-rose-500 dark:group-hover:text-rose-400">
+                    class="w-5 flex justify-center {{ request()->routeIs('admin.students.*') ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-400 dark:text-gray-500 group-hover:text-rose-500 dark:group-hover:text-rose-400' }}">
                     <i class="fas fa-user-graduate text-lg"></i>
                 </div>
                 <span class="text-[14px]">Students</span>
-                <span
-                    class="ml-auto bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-[10px] font-bold px-2.5 py-0.5 rounded-lg uppercase tracking-wide">New</span>
+                @if(request()->routeIs('admin.students.*'))
+                    <span class="ml-auto w-2 h-2 rounded-full bg-indigo-600 dark:bg-indigo-400 shadow-glow"></span>
+                @else
+                    <span
+                        class="ml-auto bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-[10px] font-bold px-2.5 py-0.5 rounded-lg uppercase tracking-wide">New</span>
+                @endif
             </a>
             @endif
 
@@ -142,15 +146,19 @@
 
             <!-- Check if User has permission to see Students -->
             @if(auth()->check() && auth()->user()->hasPermission('student entry'))
-            <a href="#"
-                class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white">
+            <a href="{{ route('admin.students.index') }}"
+                class="flex items-center gap-3.5 px-4 py-3 rounded-xl transition-all duration-300 group {{ request()->routeIs('admin.students.*') ? 'bg-indigo-50 dark:bg-indigo-600/20 text-indigo-700 dark:text-indigo-400 font-bold shadow-sm' : 'hover:bg-gray-50 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white' }}">
                 <div
-                    class="w-5 flex justify-center text-gray-400 dark:text-gray-500 group-hover:text-rose-500 dark:group-hover:text-rose-400">
+                    class="w-5 flex justify-center {{ request()->routeIs('admin.students.*') ? 'text-indigo-600 dark:text-indigo-400' : 'text-gray-400 dark:text-gray-500 group-hover:text-rose-500 dark:group-hover:text-rose-400' }}">
                     <i class="fas fa-user-graduate text-lg"></i>
                 </div>
                 <span class="text-[14px]">Students</span>
-                <span
-                    class="ml-auto bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-[10px] font-bold px-2.5 py-0.5 rounded-lg uppercase tracking-wide">New</span>
+                @if(request()->routeIs('admin.students.*'))
+                    <span class="ml-auto w-2 h-2 rounded-full bg-indigo-600 dark:bg-indigo-400 shadow-glow"></span>
+                @else
+                    <span
+                        class="ml-auto bg-rose-50 dark:bg-rose-500/10 text-rose-600 dark:text-rose-400 text-[10px] font-bold px-2.5 py-0.5 rounded-lg uppercase tracking-wide">New</span>
+                @endif
             </a>
             @endif
 
